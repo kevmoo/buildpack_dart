@@ -70,7 +70,7 @@ packages:
       name: coverage
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.0"
+    version: "1.0.3"
   crypto:
     dependency: transitive
     description:
@@ -99,6 +99,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.2"
+  hotreloader:
+    dependency: transitive
+    description:
+      name: hotreloader
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.2"
   http:
     dependency: "direct dev"
     description:
@@ -218,6 +225,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
+  shelf_hotreload:
+    dependency: "direct dev"
+    description:
+      name: shelf_hotreload
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   shelf_packages_handler:
     dependency: transitive
     description:
@@ -281,6 +295,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  stream_transform:
+    dependency: transitive
+    description:
+      name: stream_transform
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   string_scanner:
     dependency: transitive
     description:
@@ -336,7 +357,7 @@ packages:
       name: vm_service
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "8.1.0"
+    version: "7.5.0"
   watcher:
     dependency: transitive
     description:
