@@ -10,7 +10,7 @@ final _router = Router()
   ..get('/echo/<message>', _echoHandler);
 
 Response _rootHandler(Request req) {
-  return Response.ok('Hello, World!\n');
+  return Response.ok('Hello, Cloud Run and Cloud Native Buildpacks!');
 }
 
 Response _echoHandler(Request request) {
