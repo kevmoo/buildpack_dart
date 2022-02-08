@@ -9,12 +9,11 @@ final _router = Router()
   ..get('/', _rootHandler)
   ..get('/echo/<message>', _echoHandler);
 
-Response _rootHandler(Request req) {
-  return Response.ok('Hello, Cloud Run and Cloud Native Buildpacks!');
-}
+Response _rootHandler(Request req) =>
+    Response.ok('Hello, Cloud Run and Cloud Native Buildpacks!');
 
 Response _echoHandler(Request request) {
-  final message = params(request, 'message');
+  final message = request.params['message'];
   return Response.ok('$message\n');
 }
 
