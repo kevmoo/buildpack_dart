@@ -1,0 +1,3 @@
+[[build.env]]
+name = "GOOGLE_DART_ENABLED"
+value = "true"
