@@ -6,6 +6,7 @@ import 'package:shelf/shelf_io.dart';
 import 'package:shelf_router/shelf_router.dart';
 
 final _upTime = Stopwatch()..start();
+final _agents = <String, int>{};
 var _callCount = 0;
 
 // Configure routes.
@@ -13,21 +14,35 @@ final _router = Router()
   ..get('/', _rootHandler)
   ..get('/echo/<message>', _echoHandler);
 
-Response _rootHandler(Request req) => Response.ok(
-      '''
+Response _rootHandler(Request req) {
+  final agent = req.headers['user-agent'];
+  if (agent != null) {
+    _agents[agent] = (_agents[agent] ?? 0) + 1;
+  }
+
+  return Response.ok(
+    '''
 Hello, Cloud Run and Cloud Native Buildpacks!
 Call count: ${++_callCount}
    Up time: ${_upTime.elapsed}
+
+Dart bits:
+  Dart version: ${Platform.version}
+    Proc count: ${Platform.numberOfProcessors}
 
 Request headers:
   ${req.headers.output}
 
 ENVIRONMENT:
   ${Platform.environment.output}
-''',
-    );
 
-extension on Map<String, String> {
+AGENTS:
+  ${_agents.output}
+''',
+  );
+}
+
+extension on Map<String, Object> {
   String get output {
     final longestKey = keys.fold<int>(
         0,
