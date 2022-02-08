@@ -4,13 +4,19 @@ import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart';
 import 'package:shelf_router/shelf_router.dart';
 
+var _callCount = 0;
+
 // Configure routes.
 final _router = Router()
   ..get('/', _rootHandler)
   ..get('/echo/<message>', _echoHandler);
 
-Response _rootHandler(Request req) =>
-    Response.ok('Hello, Cloud Run and Cloud Native Buildpacks!');
+Response _rootHandler(Request req) => Response.ok(
+      '''
+Hello, Cloud Run and Cloud Native Buildpacks!
+Call count: ${++_callCount}
+''',
+    );
 
 Response _echoHandler(Request request) {
   final message = request.params['message'];
