@@ -45,9 +45,10 @@ AGENTS:
 extension on Map<String, Object> {
   String get output {
     final longestKey = keys.fold<int>(
-        0,
-        (previousValue, element) =>
-            element.length > previousValue ? element.length : previousValue);
+      0,
+      (previousValue, element) =>
+          element.length > previousValue ? element.length : previousValue,
+    );
 
     return (entries.toList()
           ..sort((a, b) => compareAsciiLowerCase(a.key, b.key)))
