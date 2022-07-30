@@ -1,9 +1,12 @@
 import 'dart:io';
 
 import 'package:collection/collection.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart';
 import 'package:shelf_router/shelf_router.dart';
+
+part 'buildpack.g.dart';
 
 final _upTime = Stopwatch()..start();
 final _agents = <String, int>{};
@@ -75,3 +78,6 @@ Future<HttpServer> run() async {
   print('Server listening on port ${server.port}');
   return server;
 }
+
+@JsonSerializable()
+class Bob {}
