@@ -80,4 +80,10 @@ Future<HttpServer> run() async {
 }
 
 @JsonSerializable()
-class Bob {}
+class Bob {
+  Bob();
+
+  factory Bob.fromJson(Map<String, dynamic> json) => _$BobFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BobToJson(this);
+}
