@@ -70,7 +70,8 @@ Future<HttpServer> run() async {
   final ip = InternetAddress.anyIPv4;
 
   // Configure a pipeline that logs requests.
-  final handler = Pipeline().addMiddleware(logRequests()).addHandler(_router);
+  final handler =
+      Pipeline().addMiddleware(logRequests()).addHandler(_router.call);
 
   // For running in containers, we respect the PORT environment variable.
   final port = int.parse(Platform.environment['PORT'] ?? '8080');
